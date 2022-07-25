@@ -15,9 +15,7 @@ body{
     /* vertical center */
     align-content: center;    
     /* horizontal center*/
-    justify-content: center;
-
-    
+    justify-content: center;   
 }
 
 .container{
@@ -27,8 +25,6 @@ body{
   
     /* this was required to make contrainer center horizontally. Not sure why?? */
     align-items: center;
-    
-
 }
 
 .card{
@@ -56,12 +52,7 @@ body{
 
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; 
-
-    
-    
-
-    
+    text-overflow: ellipsis;     
 }
 
 /* When active class is added by javascript on card click, this code is making card
@@ -127,12 +118,7 @@ Transition is added on flex property to make it look smooth wile expanding  */
     
     /* smooth transition animation appliend on 'transform' property
      of text going vertical to horizontal view.*/
-    transition: transform 0.5s ease-in-out 0.2s;
-
-    
-
-    
-    
+    transition: transform 0.5s ease-in-out 0.2s;    
 }
 
 
@@ -180,3 +166,53 @@ Transition is added on flex property to make it look smooth wile expanding  */
 .card[id='card6']{
     background-image: url("https://source.unsplash.com/random/?dark-galaxy");
 }
+
+
+@media (max-width: 480px) {
+    .container {
+      width: 100vw;
+    }
+
+    .card:nth-of-type(3),
+    .card:nth-of-type(4),
+    .card:nth-of-type(5),
+    .card:nth-of-type(6) {
+      display: none;
+    }
+  }
+
+
+
+@media (max-width: 600px) {
+    .container {
+      width: 100vw;
+    }
+    .card:nth-of-type(4),
+    .card:nth-of-type(5),
+    .card:nth-of-type(6) {
+      display: none;
+    }
+  }
+
+@media (max-width: 680px) {
+    .container {
+      width: 100vw;
+    }
+  
+    .card:nth-of-type(5),
+    .card:nth-of-type(6) {
+      display: none;
+    }
+  }
+  
+
+  @media (max-width: 960px) {
+    .container {
+      width: 100vw;
+    }
+  
+    .card:nth-of-type(6) {
+      display: none;
+    }
+  }
+  
