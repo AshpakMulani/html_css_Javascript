@@ -10,16 +10,20 @@ body{
     font-family: 'Roboto', sans-serif;
     display: flex;
     margin: 0;
+
     /*full page height*/
-    height: 100vh;    
+    height: 100vh;  
+
     /* vertical center */
-    align-content: center;    
+    align-content: center;   
+     
     /* horizontal center*/
     justify-content: center;   
 }
 
 .container{
     display: flex;
+
     /* 80% of total page width*/
     width: 80vw;   
   
@@ -38,56 +42,53 @@ body{
     background-position: center;
     margin: 0.3rem;
     color: white;   
+
     /* during flex transition while changing card size all cards become of same size
-    first and then each card adjust it's size as given. This transtion needs to be smooth
+    first and then each card adjust its size as given. This transition needs to be smooth
     so added this property on each card */
     transition: flex 1s;
     position: relative;    
     
-    /* this is to avoide showing contents whihc are overflowing outside div
+    /* this is to avoid showing contents which are overflowing outside div
     while rotating text horizontally while card is getting active, initial text
     start from outside card container in animation. To hide outside animation
-    folowing code is added. 
+    following code is added. 
     ref : https://www.w3schools.com/cssref/css3_pr_text-overflow.asp */
-
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;     
 }
 
 /* When active class is added by javascript on card click, this code is making card
-bigger by 12 times to show more details. Remember each card was given size 1 flex:1
-in initial render. 
-
-Transition is added on flex property to make it look smooth wile expanding  */ 
+bigger by 12 times compared to other cards to show more details. Each card was given size 1
+using flex:1 during initial render. 
+Transition is added on flex property to make it look smooth while expanding  */ 
 .active{
     flex:12; 
     transition: flex 1.5s ease-in-out 0.1s;
 }
 
 
-.card h1{
-    
+.card h1{    
     text-transform: uppercase;
 
     /* using transform: rotate(270deg); not a good idea. 
     When we add transform browsers are adding extra space 
-    around text whihc is not removable even if padding and margine for text
-    is set to zero explicitely.
+    around text which is not removable even if padding and margin for text
+    is set to zero explicitly.
 
-    instead of this use writing-mode:vertical-rl; to write text vertically    
-    */
-
+    instead of this use writing-mode:vertical-rl; to write text vertically */
     writing-mode:vertical-rl;
 
     /* letter direction from left to right */
     transform:scale(-1);
 
-    
+    /* position marked as absolute to add text in bottom inside parent div since
+    parent div is positioned as relative */
     position: absolute;
 
-    /* this is added to remove default margine added by browser to h1 and it was causing text to 
-    displaye little right than expected in collapsed card */
+     /* this is added to remove default margin added by browser to h1 and it was causing text to 
+    display little right than expected in collapsed card */
     left: -1rem;
 
     /* bottom start of text display */
@@ -96,7 +97,6 @@ Transition is added on flex property to make it look smooth wile expanding  */
 
 
 .card.active h1{    
-
     /* setting normal left to write text mode from parent body when
     card is expanded */
     writing-mode:inherit;
@@ -121,42 +121,46 @@ Transition is added on flex property to make it look smooth wile expanding  */
     transition: transform 0.5s ease-in-out 0.2s;    
 }
 
-
 .card p{
     opacity: 0;       
 }
 
-
-.card.active p{
-     
+.card.active p{     
     padding: 2rem;
+
+    /* display detail contents by changing opacity from zero to 0.8 with grey background
+    when card is active. Added smooth animation on opacity change property for sudden 
+    visibility change as card expand action takes time with animation */
     opacity: 0.8;
     transition: opacity 2.0s ease-in 0.2s;   
     background-color: gray; 
+
+    /* wrap text usually works with word-wrap: break-word; but this was not taking
+    effect on the page. After trying multiple properties in browser developer
+    console white-space: pre-wrap; worked. */
     white-space: pre-wrap;
+
     margin: 5rem;
     border-radius: 10px;
 }
 
-
+/* 
+Adding different category images from unsplash  on individual cards using card ID.
+*/
 .card[id='card1']{
-    background-image: url("https://source.unsplash.com/random/?dark-place");
-    
+    background-image: url("https://source.unsplash.com/random/?dark-place");    
 }
 
 .card[id='card2']{
     background-image: url("https://source.unsplash.com/random/?dark-technology");
-
 }
 
 .card[id='card3']{
-    background-image: url("https://source.unsplash.com/random/?dark-flower");
-    
+    background-image: url("https://source.unsplash.com/random/?dark-flower");    
 }
 
 .card[id='card4']{
-    background-image: url("https://source.unsplash.com/random/?dark-landscape");
-    
+    background-image: url("https://source.unsplash.com/random/?dark-landscape");    
 }
 
 .card[id='card5']{
@@ -168,20 +172,24 @@ Transition is added on flex property to make it look smooth wile expanding  */
 }
 
 
+/*
+Hiding cards for smaller devices depending on screen width.
+
+TODO : more refinement and change in layout to show cards on top of 
+each other for smaller devices rather than hiding them will be added 
+in future.
+*/
 @media (max-width: 480px) {
     .container {
       width: 100vw;
     }
-
     .card:nth-of-type(3),
     .card:nth-of-type(4),
     .card:nth-of-type(5),
     .card:nth-of-type(6) {
       display: none;
     }
-  }
-
-
+}
 
 @media (max-width: 600px) {
     .container {
@@ -192,27 +200,23 @@ Transition is added on flex property to make it look smooth wile expanding  */
     .card:nth-of-type(6) {
       display: none;
     }
-  }
+}
 
 @media (max-width: 680px) {
     .container {
       width: 100vw;
-    }
-  
+    }  
     .card:nth-of-type(5),
     .card:nth-of-type(6) {
       display: none;
     }
-  }
-  
+}  
 
   @media (max-width: 960px) {
     .container {
       width: 100vw;
-    }
-  
+    }  
     .card:nth-of-type(6) {
       display: none;
     }
-  }
-  
+}
