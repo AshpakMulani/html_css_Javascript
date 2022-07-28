@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap');
+
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+/* selecting child container with *_container wild card */
+div[class*="_container"]{
+    /* have its own flex alignment to make it's child items float from left to right */
+    display: flex;
+
+    /* occupy fill page for single entity with some margine onf left and right */
+    height: 100vh;
+    width: 80vw;
+    
+    /* required to make vertical center alignment */
+    align-items: center;    
+
+    /* we are changing opacity and transform to show image
+     so adding traansition on all the properties.
+     Adding more delay so that animation can be noticed easily. */    
+    transition: all 0.5s ease-in-out 0.5s;    
+
+}
+
+div[class*="_container"] img{
+
+    /* image area will be 1.5x of text area */
+    flex: 1.5;
+    margin: 0rem 5rem 0rem 5rem;
+
+    /* fit complete image in given display area without stretch*/
+    object-fit: cover;
+
+    /* occupy all width given by parent and use own height. Image wont be out of proportion
+    as object-fit is cover */
+    width: 100%;
+    height: 300px;   
+
+    /* avoide cached data */
+    background-repeat: no-repeat;
+    
+     
+}
+
+div[class*="_container"] p{
+    /* text area will be of sie 1 an image area of ration 1.5 */
+    flex: 1;
+}
+
+/* giving starting position to different container to have multiple
+type of slide in/up/down animation */
+.second_container{
+    transform: translateY(200px);
+}
+
+.third_container{
+    transform: translateX(200px);
+}
+
+.fourth_container{
+    transform: translateY(-200px);
+}
+
+.fifth_container{
+    transform: translateX(-200px);
+}
+/* common visible class to set visibility/opacity to 1
+and also get item on their original place no matter what
+X and Y corodinates are */
+.visible{    
+    opacity: 1;    
+    transform: translateX(0px);
+    transform: translateY(0px);
+}
+
+
+/* using opacity to hide the items rather than display=none, because
+we need item to be at its place to get if we have scrolled till that item */
+.hide{
+    opacity: 0;    
+}
