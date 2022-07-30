@@ -81,22 +81,6 @@ type of slide in/up/down animation */
 
 
 
-.seventh_container{
-    transform: translateX(200px);
-}
-
-.eighth_container{
-    transform: translateY(-200px);
-}
-
-.ninght_container{
-    transform: translateX(-200px);
-}
-
-.tength_container{
-    transform: translateY(200px);
-}
-
 /* common visible class to set visibility/opacity to 1
 and also get item on their original place no matter what
 X and Y corodinates are */

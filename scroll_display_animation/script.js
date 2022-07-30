@@ -3,8 +3,6 @@ const items_all = [...document.querySelectorAll(`[class*="_container"]`)]
 // select first 5 elements (till fourth_container) starting from index zero.
 const items_rect = items_all.slice(0,5)
 
-console.log(items_rect)
-
 // on each scroll event on window call checkVisibility() function
 window.addEventListener('scroll', checkRectVisibility)
 
@@ -84,8 +82,7 @@ function manageIntersectionVisibility(entries) {
     rootMargin: '0px',
     threshold: 1.0
   }
-  */  
-  
+  */   
 
   const observer = new IntersectionObserver(manageIntersectionVisibility);
   // add observer for sixth_container  

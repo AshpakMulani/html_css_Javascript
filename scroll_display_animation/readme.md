@@ -22,16 +22,22 @@ The Intersection Observer API provides a way to asynchronously observe changes f
 
 Later 2 object lightpink and light gray background are showung visibility and lazy loading managment using IntersectionObserver
 
-GIF might not show all smooth animation correctly
 
 
 
+
+## Animate on Scroll (AOS) Library
+ref : https://michalsnik.github.io/aos/
+
+Easiest way to animate things on scroll. Just add library as mentioedn in ref link and add respective data class for animation type
 
 
 
 ## Code Execution
 
-- todo
+- clone the code locally
+- open code in VSCode and make sure 'live server' extention is installed in vs code
+- right click on index.html file and choose 'Open with live server'
 
 
 
