@@ -42,23 +42,33 @@ function manageIntersectionVisibility(entries) {
     // loop through all element to check if anything is visible yet in viewport
     entries.map((entry) => {
       // check if it is intersecting with viewport using buildin property
-      // and add visible class if being intersected
-   
-      if (entry.isIntersecting) {
-      
-        if (String(entry.target.className).includes("lazyload")){                    
+      // and add visible class if being intersected   
+      if (entry.isIntersecting) {      
+        // lazyload class is used in image tag in html implimentaiton. This class name
+        // is added to check whihc paerts we need to lazy load.
+        if (String(entry.target.className).includes("lazyload"))
+        {     
+          // update src tag with image src stored in data-src dataset to start loading image               
           entry.target.src = entry.target.dataset.src;
+          // once image is loaded dont observer it and aoide reloading it again on scroll
           observer.unobserve(entry.target);
+          // interms of image lazy loading we are setting observer on image and not the parent
+          // container and visibile/hide class is for parent container so adding visible to classlist 
+          //of parent. For other containers we are directly removing/adding visibility on container 
           entry.target.parentElement.classList.add('visible');
-          entry.target.parentElement.classList.remove('hide');          
+          entry.target.parentElement.classList.remove('hide');       
+          //remove hide class from image as well because it gets added in this code in else part
+          //when image is not yet intersecting with viewport   
           entry.target.classList.remove('hide')
         }
+        // add visibility to containers other than part of lazyload class
         else{    
         entry.target.classList.remove('hide')
         entry.target.classList.add('visible')
         console.log(entry)      
         }  
       }
+      // remove visibility for non-inyteresecting containers
       else {
         entry.target.classList.remove('visible')
         entry.target.classList.add('hide')
@@ -76,10 +86,9 @@ function manageIntersectionVisibility(entries) {
   }
   */  
   
+
   const observer = new IntersectionObserver(manageIntersectionVisibility);
-
-  // add observer for sixth_container
-  
+  // add observer for sixth_container  
   observer.observe(items_all[5]);
-
+  // add observer for image child element inside seventh_container 
   observer.observe(items_all[6].firstElementChild);
