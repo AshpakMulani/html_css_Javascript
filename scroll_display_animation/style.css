@@ -74,6 +74,29 @@ type of slide in/up/down animation */
 .fifth_container{
     transform: translateX(-200px);
 }
+
+.sixth_container{
+    transform: translateX(200px);
+}
+
+
+
+.seventh_container{
+    transform: translateX(200px);
+}
+
+.eighth_container{
+    transform: translateY(-200px);
+}
+
+.ninght_container{
+    transform: translateX(-200px);
+}
+
+.tength_container{
+    transform: translateY(200px);
+}
+
 /* common visible class to set visibility/opacity to 1
 and also get item on their original place no matter what
 X and Y corodinates are */
@@ -88,4 +111,34 @@ X and Y corodinates are */
 we need item to be at its place to get if we have scrolled till that item */
 .hide{
     opacity: 0;    
+}
+
+
+
+/* addin different background to different secions in implimentaiton */
+
+.aos{
+    background-color: azure;
+    text-align: center;
+    padding: 5rem 0;
+}
+
+.intersectionlazyloading{
+    background-color: lightgray;
+    text-align: center;
+    padding: 5rem 5rem;
+    
+}
+
+.intersectionanimation{
+    background-color: lightpink;
+    text-align: center;
+    padding: 5rem 5rem;
+
+}
+
+.getBoundingClientRect{
+    background-color: lightskyblue;
+    text-align: center;
+    padding: 5rem 5rem;
 }
