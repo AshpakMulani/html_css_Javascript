@@ -43,4 +43,7 @@ Easiest way to animate things on scroll. Just add library as mentioedn in ref li
 
 ## Sample demo in video format
 
--todo
+
+
+https://user-images.githubusercontent.com/42534082/181877533-e3ceec67-42c3-4332-a3ec-ddc998ffba26.mp4
+
