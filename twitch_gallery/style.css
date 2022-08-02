@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap');
+
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    display: flex; 
+    margin: 0;
+    height: 100vh;
+    
+}
+
+
+.split{
+    position: absolute;
+    width: 50%;
+    height: 100vh;
+    text-align: center;
+    color: white;
+    font: roboto;
+}
+
+.left{    
+    background: url("./resources/game.jpg");
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;    
+    transition: all 1s ease 0.2s;
+    opacity: 0.6;
+    
+}
+
+.right{
+    background: url("./resources/stream.jpg");
+    right: 0;
+    background-repeat: no-repeat;
+    background-size: cover;  
+    background-position: center;
+    transition: all 1s ease 0.2s;
+    opacity: 0.6;
+}
+
+.btn{
+    position: absolute;
+    border: #fff solid 0.1rem;
+    border-radius: 30px;
+    padding: 1rem;
+    color: white;
+    top: 75%;
+    left: 40%;
+    text-decoration: none;
+    opacity: 0.7;
+    width: 10rem;
+    background: darksalmon;
+}
+
+.btn:hover{
+    opacity: 1;
+    background: linear-gradient(90deg, #d53369 0%, #daae51 100%);;  
+}
+
+.hover-left{
+    opacity: 1;
+    width: 75%;    
+}
+
+.no-hover-right{    
+    width: 25%;    
+}
+
+
+.hover-right{
+    opacity: 1;
+    width: 75%;    
+}
+
+.no-hover-left{
+    
+    width: 25%;    
+}
+
+
+
+
+
+
