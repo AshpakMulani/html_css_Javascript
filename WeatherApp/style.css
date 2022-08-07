@@ -1,0 +1,114 @@
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #222;
+    background-image: url('https://source.unsplash.com/1600x900/?landscape');
+}
+.weather-details {
+    visibility: visible;
+}
+
+.weather-error {
+    visibility: hidden;    
+    color: red; 
+}
+
+
+.weather-details.loading{
+    visibility: hidden;  
+    max-height: 20px;
+    position: relative;
+}
+
+
+.weather-details.loading::after{
+    visibility: visible;
+    content: "loading...";
+    color: rebeccapurple;
+    position: absolute;
+    top: 0;
+}
+
+
+.weather-details-error{
+    visibility: hidden;  
+    max-height: 20px;
+    position: relative;
+    
+}
+
+.weather-card{
+    background-color: #08090C;
+    color: white;
+    padding: 40px;
+    border-radius: 30px;
+    max-width: 300px;
+    align-content: center;
+    font-family: 'roboto', sans-serif;
+    opacity: 90%;
+}
+
+.location-name{
+    margin-top: 20px;
+    font-family: 'Khand', sans-serif;
+    font-size:xx-large;
+}
+
+.condition{
+    border-radius: 20px;
+    background-color: #222;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content:center;
+    align-items: center;
+    padding: 20px;
+}
+
+
+.others{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 20px;
+    grid-column-gap: 10px;
+}
+
+.others-wind_kph,
+.others-humidity,
+.others-uv 
+{
+    border-radius: 20px;
+    background-color: #222;
+    padding: 10px;
+    height: auto;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.search-bar input{
+    border-radius: 10px;
+    border: 0;
+    padding: 0.5em 1em;
+    height: 40px;
+    background-color: #222;
+    color: white;
+    font-family: 'roboto', sans-serif;
+    outline: none;
+}
+
+
+.search-bar button{
+    border-radius: 10px;
+    border: 0;
+    padding: 0.5em 1em;
+    height: 40px;
+    background-color: #222;
+    color: white;
+}
+
+.search-bar{
+    width: auto;
+}
