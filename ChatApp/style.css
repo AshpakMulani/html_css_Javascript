@@ -1,0 +1,220 @@
+/* standard generic border box style to include box border in sizing */
+
+*,
+*::after,
+*::before
+{
+    box-sizing: border-box;
+}
+
+
+/* styling for chat toggle button. position is marked as fixed to keep button
+on same place in bottom right */
+.chat-btn{
+    display: flex;
+    position: fixed;
+    border: 0;
+    border-radius: 40px;
+    padding: 20px;
+    opacity: 0.7;
+    background-color: darkcyan;
+    color: white;
+    box-shadow: 2px 5px 5px gray;
+    right: 50px;
+    bottom: 50px;
+}
+
+
+.chat-btn:hover{
+        opacity: 1;
+}
+
+/* chat window styling with position fixed on top of chat toggle button.
+flex direction is changed to column for showing child items on column direction.
+Justify contents are space between to make sure all childs are spread by spaced 
+equally in whole area. Display is set to none to by default mark chat window
+as hidden */
+.chat-win{
+    display: none;
+    width: 20rem;
+    border: 1px;
+    border-radius: 20px;
+    flex-direction: column;
+    border-color: darkcyan;
+    border-style: solid;
+    padding: 0rem 1rem 0rem 1rem;
+    box-shadow: black;    
+    box-shadow: 2px 5px 5px gray;
+    justify-content: space-between;
+    height: 500px;
+    position: fixed;
+    right: 60px;
+    bottom: 130px; 
+}
+
+/* seperate style for easy toggle visibility of chat window using javascript */
+.show{
+    display: flex;
+}
+
+/* styling for top header frame on chat window */
+.welcome-frame {
+    border: 1px;
+    background-color: darkcyan;
+    margin: 0rem -1rem 0rem -1rem;
+    border-top-left-radius: 17px;
+    border-top-right-radius: 17px;    
+}
+
+.welcome-frame h2{
+    text-align: center;
+    color: white;
+    font-family: 'Khand', sans-serif;
+    font-size:xx-large;
+    margin-top: 1rem;
+    margin-bottom: -1rem;
+}    
+
+.welcome-frame p{
+    margin: 1rem 1rem;
+    color: whitesmoke;
+    font-family: 'roboto', sans-serif;
+    text-align: justify;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+
+/* styling for message area. overflow-y is hidden to avoide showing scrollbar
+when contents are overflowing in chat area */
+
+.msg-frame{
+    font-family: 'roboto', sans-serif;
+    height: 75%;
+    margin: 1rem 0rem;
+    font-size: 13px;
+    overflow-y: hidden;    
+}
+
+/* displaying scrollbar on hover in chat area. using overlay as style to avoide 
+scrollbar when displayed pushing contents to left. Instead now scrollbar will be
+diaplyed on top of contents */
+
+.msg-frame:hover{
+    overflow-y: overlay;       
+}
+
+
+/* scrollbar styling */
+::-webkit-scrollbar {
+    width: 5px;    
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);    
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(90, 90, 90, 0.8);
+    border-radius: 10px;
+  }
+
+
+/* Wild card to select class starting with chat-msg-unit* since we have
+-left, -right class names for message single unit. This part styles image
+of user and make it round shapped.  */
+[class*="chat-msg-unit"] img{    
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 20px;
+}
+
+
+.chat-msg-unit-left{
+    display: flex;
+    justify-content: flex-start;
+    margin: 1.5rem 3rem 1rem 0rem;
+   
+}
+
+/* 
+Having own display=flex property to overright parents display flex column and making it
+easy to alight contents to right in default row flex direction.
+
+Adding margin (top, right, bottom, left) to user out message to avoide goign extreme right
+when scroll bar is visible and avide going extreme left on viewport to differenciate between
+ in-out messages display*/
+.chat-msg-unit-right{
+    display: flex;
+    justify-content: flex-end;
+    margin: 1.5rem 0.5rem 1rem 3rem;
+}
+
+
+
+[class*="chat-msg-unit"] .chat-msg{       
+    width: 70%;
+    border: 1px;
+    border-color: rgb(243, 241, 241);
+    border-style: solid;
+    background-color:rgb(243, 241, 241);
+    border-radius: 15px;
+    padding: 5px;
+    margin-left: 5px;
+}
+
+/* bottom area consisting text box and send button display is flex with default
+ row orientation and position is relative without any left right mentioned, since we
+ want element to take its natural position according to parent .chat-win with flex direction
+ column. This element is added in HTML as last so it will be displayed in end and will also
+ respect padding applied on parent element in bottom.*/
+ 
+ /* this element has its own display flex, because we want its children textbox and send button
+ to be displayed in a row, but overwriting parent column flex display*/
+
+.input-area{   
+    display: flex;
+    position: relative;   
+    margin: 0rem -1rem 0rem -1rem;
+    
+    border-top: darkcyan;;
+    height: 80px;
+    border-style:solid;
+    border: 1px;
+    padding:1rem 1rem 1rem 1rem;  
+    align-content: center;
+    align-items: center;
+    border-bottom-left-radius: 17px;
+    border-bottom-right-radius: 17px;  
+
+}
+
+.input-area input{
+    border: 1px solid #ccc;
+    outline: none;   
+    height: 2rem;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 100%;
+    padding: 0rem 0.5rem;
+}
+
+.input-area button{
+    border: 1px solid #ccc;
+    background-color: darkcyan;
+    color: white; 
+    outline: none;
+    height: 2rem;
+    padding: 3px 8px;
+    opacity: 0.8;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* send button hover highlight by making opacity to 1 from 0.8 */
+.input-area button:hover{
+    opacity: 1;
+}

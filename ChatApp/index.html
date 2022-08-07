@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Khand:wght@700&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Chat App</title>
+</head>
+<body>
+
+    <div class="client-chat">    
+            <div class="chat-toggle">
+                <button class="chat-btn">            
+                        <span class="material-icons"> chat </span>            
+                </button>
+            </div>
+            <div class="chat-win">
+                <div class="welcome-frame">
+                    <h2> CHAT CLIENT</h2>
+                    <p>Chat client window easy to plug with nodeJS
+                        websocket for testing</p>
+                </div>
+
+                <div class="msg-frame">                    
+                </div>
+
+                <div class="input-area">            
+                    <input type="text" class="send-txt"/>       
+
+                    <button class="send-btn">
+                        <span class="material-icons"> send </span>
+                    </button>            
+            </div>
+            </div>
+    </div>
+
+
+    <script type="module" src="./client/client-app.js"></script>
+    <script type="module" src="./client/client-chat_ws.js"></script>
+
+</body>
+</html>
